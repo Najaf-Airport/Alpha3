@@ -1,0 +1,190 @@
+/* تنسيقات إضافية خاصة بصفحة المسؤول */
+.controls {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+
+.controls label {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.controls select {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    margin-left: 15px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+.user-stats, .all-flights-data {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.user-stats h3, .all-flights-data h3 {
+    text-align: center;
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.user-stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.user-stat-item:last-child {
+    border-bottom: none;
+}
+
+.user-stat-item span {
+    font-weight: bold;
+    color: #333;
+}
+
+.total-flights {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+#allFlightsTable table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#allFlightsTable th,
+#allFlightsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: right;
+    font-size: 0.9em;
+}
+
+#allFlightsTable th {
+    background-color: #eaf6ff;
+    color: #0056b3;
+    font-weight: bold;
+}
+
+#allFlightsTable tr:nth-child(even) {
+    background-color: #f6faff;
+}
+
+#allFlightsTable tr:hover {
+    background-color: #e0f2ff;
+}
+
+#exportAllFlightsBtn {
+    margin-top: 15px;
+    background-color: #28a745;
+    color: white;
+    width: auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block; /* لجعل الزر يأخذ سطرًا كاملاً */
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease;
+}
+
+#exportAllFlightsBtn:hover {
+    background-color: #218838;
+}
+
+#logoutBtnAdmin {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 20px;
+    float: left;
+    transition: background-color 0.3s ease;
+}
+
+#logoutBtnAdmin:hover {
+    background-color: #c82333;
+}
+
+/* تنسيقات الجداول لتناسب الهاتف */
+@media (max-width: 600px) {
+    #allFlightsTable table,
+    .user-stats {
+        overflow-x: auto; /* لجعل الجداول قابلة للتمرير أفقياً */
+        display: block;
+        width: 100%;
+    }
+
+    #allFlightsTable thead,
+    #allFlightsTable tbody,
+    #allFlightsTable th,
+    #allFlightsTable td,
+    #allFlightsTable tr {
+        display: block;
+    }
+
+    #allFlightsTable thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    #allFlightsTable tr {
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    #allFlightsTable td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    #allFlightsTable td:before {
+        content: attr(data-label);
+        position: absolute;
+        right: 6px;
+        width: 45%;
+        padding-left: 10px;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+}

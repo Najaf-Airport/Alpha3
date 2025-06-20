@@ -1,0 +1,111 @@
+/* تنسيقات إضافية خاصة بصفحة الرحلات */
+.flight-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.flight-card h3 {
+    margin-top: 0;
+    color: #0056b3;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.flight-card .form-group {
+    margin-bottom: 12px;
+}
+
+.flight-card label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.flight-card input[type="text"],
+.flight-card input[type="date"],
+.flight-card input[type="time"],
+.flight-card textarea {
+    width: calc(100% - 22px); /* Adjust for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+.flight-card textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+#saveFlightsBtn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+#saveFlightsBtn:hover {
+    background-color: #218838;
+}
+
+.previous-flights {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ddd;
+}
+
+.previous-flights h2 {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.previous-flight-item {
+    background-color: #e9f5ff;
+    border: 1px solid #cce5ff;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.previous-flight-item strong {
+    color: #004085;
+}
+
+#logoutBtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 20px;
+    float: left; /* أو استخدام flexbox لتنظيم أفضل */
+    transition: background-color 0.3s ease;
+}
+
+#logoutBtn:hover {
+    background-color: #c82333;
+}
