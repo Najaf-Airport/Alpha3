@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لوحة التحكم - المسؤول</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css"> </head>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
 <body>
     <div class="container">
         <header>
@@ -33,7 +34,20 @@
                 <button id="exportAllFlightsBtn">تصدير كل الرحلات (Word)</button>
                 <p id="noAllFlights" style="text-align: center; color: #777; display: none;">لا توجد رحلات لعرضها.</p>
                 <div id="allFlightsTable">
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>التاريخ</th>
+                                <th>رقم الرحلة</th>
+                                <th>اسم المستخدم</th>
+                                <th>معرف المستخدم</th>
+                                <th>ملاحظات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="allFlightsTableBody">
+                            </tbody>
+                    </table>
+                </div>
             </section>
         </main>
 
@@ -43,14 +57,35 @@
         </footer>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
-    <script src="js/firebase-init.js"></script>
-    <script src="js/admin.js"></script>
+    <script type="module" src="js/firebase-init.js"></script>
+
+    <script type="module" src="js/admin.js"></script>
+
     <script>
+        // هذا السكربت الصغير يمكن أن يبقى هنا أو ينقل إلى ملف JS منفصل إذا أردت
         document.getElementById('currentYearAdmin').textContent = new Date().getFullYear();
         document.getElementById('currentYearFooter').textContent = new Date().getFullYear();
+        
+        // تعبئة قائمة الشهور (يمكن أن يكون في admin.js أيضاً)
+        const monthSelect = document.getElementById('monthSelect');
+        const currentMonthNameSpan = document.getElementById('currentMonthName');
+        const months = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+        const currentMonthIndex = new Date().getMonth();
+
+        if (monthSelect && currentMonthNameSpan) { // التأكد من وجود العناصر
+            for (let i = 0; i < months.length; i++) {
+                const option = document.createElement('option');
+                option.value = i + 1; // الشهور تبدأ من 1 في Firebase
+                option.textContent = months[i];
+                monthSelect.appendChild(option);
+            }
+            monthSelect.value = currentMonthIndex + 1; // تحديد الشهر الحالي
+            currentMonthNameSpan.textContent = months[currentMonthIndex]; // تحديث اسم الشهر في العنوان
+            
+            monthSelect.addEventListener('change', () => {
+                currentMonthNameSpan.textContent = months[parseInt(monthSelect.value) - 1];
+            });
+        }
     </script>
-</body>
+    </body>
 </html>
